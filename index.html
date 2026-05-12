@@ -43,10 +43,11 @@
             <i class="devicon-git-plain-wordmark"></i>
         </div>
         <div class="redes-sociais">
-            <button onclick="window.open('https://github.com/', '_blank')">
+            <button onclick="window.open('https://github.com/mreixm')">
                 <i class="devicon-github-original-wordmark"></i>
             </button>
-            <button class="linkedin" onclick="window.open('https://linkedin.com/', '_blank')">
+            <button class="linkedin"
+                onclick="window.open('https://www.linkedin.com/in/matheus-reis-machado-475708223/')">
                 <i class="devicon-linkedin-plain-wordmark"></i>
             </button>
         </div>
@@ -55,9 +56,12 @@
     <section id="sobre" class="sobre">
         <h2 class="sobre-titulo">Sobre Mim</h2>
         <div class="sobre-caixa">
-            <p class="sobre-paragrafo">Estudante de Engenharia de Software, em busca de estágio em desenvolvimento
-                backend para aplicar conhecimentos em programação, banco de dados e desenvolvimento
-                web, contribuindo com a equipe e evoluindo tecnicamente.</p>
+            <p class="sobre-paragrafo">Estudante de Engenharia de Software com foco em desenvolvimento backend.
+                Tenho experiência com Python, Java e C, além de conhecimentos em desenvolvimento web com JavaScript,
+                HTML e CSS.
+                Gosto de resolver problemas através do código e estou em busca do meu primeiro estágio para contribuir
+                em projetos reais,
+                aprender na prática e crescer como desenvolvedor.</p>
         </div>
     </section>
 
@@ -115,21 +119,21 @@
     </section>
 
     <script type="text/javascript">
-       
-        const EMAILJS_PUBLIC_KEY  = 'C-GULXT7nz04izkfz';  
-        const EMAILJS_SERVICE_ID  = 'service_hq4735x';  
-        const EMAILJS_TEMPLATE_ID = 'template_no0kh7v'; 
+
+        const EMAILJS_PUBLIC_KEY = 'C-GULXT7nz04izkfz';
+        const EMAILJS_SERVICE_ID = 'service_hq4735x';
+        const EMAILJS_TEMPLATE_ID = 'template_no0kh7v';
 
         emailjs.init(EMAILJS_PUBLIC_KEY);
 
         function enviarEmail() {
-            const nome     = document.getElementById('nome').value.trim();
-            const email    = document.getElementById('email').value.trim();
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
             const mensagem = document.getElementById('mensagem').value.trim();
             const feedback = document.getElementById('form-feedback');
-            const btnTexto  = document.getElementById('btn-texto');
+            const btnTexto = document.getElementById('btn-texto');
             const btnLoading = document.getElementById('btn-loading');
-            const btn       = document.getElementById('btn-enviar');
+            const btn = document.getElementById('btn-enviar');
 
             if (!nome || !email || !mensagem) {
                 mostrarFeedback('Por favor, preencha todos os campos.', 'erro');
@@ -143,21 +147,21 @@
             }
 
             btn.disabled = true;
-            btnTexto.style.display  = 'none';
+            btnTexto.style.display = 'none';
             btnLoading.style.display = 'inline';
-            feedback.style.display  = 'none';
+            feedback.style.display = 'none';
 
             const templateParams = {
-                from_name:  nome,
+                from_name: nome,
                 from_email: email,
-                message:    mensagem,
+                message: mensagem,
             };
 
             emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
                 .then(function () {
                     mostrarFeedback('✅ Mensagem enviada com sucesso! Responderei em breve.', 'sucesso');
-                    document.getElementById('nome').value     = '';
-                    document.getElementById('email').value    = '';
+                    document.getElementById('nome').value = '';
+                    document.getElementById('email').value = '';
                     document.getElementById('mensagem').value = '';
                 })
                 .catch(function (error) {
@@ -166,18 +170,19 @@
                 })
                 .finally(function () {
                     btn.disabled = false;
-                    btnTexto.style.display  = 'inline';
+                    btnTexto.style.display = 'inline';
                     btnLoading.style.display = 'none';
                 });
         }
 
         function mostrarFeedback(msg, tipo) {
             const feedback = document.getElementById('form-feedback');
-            feedback.textContent  = msg;
-            feedback.className    = 'form-feedback ' + tipo;
+            feedback.textContent = msg;
+            feedback.className = 'form-feedback ' + tipo;
             feedback.style.display = 'block';
         }
     </script>
 
 </body>
+
 </html>
